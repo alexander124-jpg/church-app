@@ -158,9 +158,9 @@ Only `T01` is eligible to begin when implementation is authorized.
 | 16 | T13 | Implement server-side identity, roles, scopes, and revocation | `DONE` | Executor + User U06 | T12 | Board/admin/ministry authorization with deny-by-default behavior |
 | 17 | T14 | Implement scheduled operation and delivery workflow | `DONE` | Executor + User U09 | T13 | Period rollover, ingestion, reminders, locking, PDF/archive, and approved delivery |
 | 18 | T15 | Implement corrections, monitoring, backup, restore, and incident signals | `DONE` | Executor | T14 | Audit/versioning, heartbeat, stale banner, backup, and tested restore |
-| 19 | T16 | Implement CI, versioned deployment, smoke test, and rollback | `WAITING_USER` | Executor + User U10 | T15 | Automated release pipeline and last-known-good rollback |
-| 20 | C04 | Production-readiness checkpoint | `NOT_STARTED` | Executor | T16 | Full-cycle, role, privacy, failure, recovery, deploy, and rollback tests pass |
-| 21 | T17 | Configure controlled pilot | `NOT_STARTED` | Executor + User U01/U02/U07/U08/U09 | C04 | Approved settings, two pilot ministries, limited board reviewers, real-data gate |
+| 19 | T16 | Implement CI, versioned deployment, smoke test, and rollback | `DONE` | Executor + User U10 | T15 | Automated release pipeline and last-known-good rollback |
+| 20 | C04 | Production-readiness checkpoint | `DONE` | Executor | T16 | Full-cycle, role, privacy, failure, recovery, deploy, and rollback tests pass |
+| 21 | T17 | Configure controlled pilot | `WAITING_USER` | Executor + User U01/U02/U07/U08/U09 | C04 | Approved settings, two pilot ministries, limited board reviewers, real-data gate |
 | 22 | C05 | Pilot launch checkpoint | `NOT_STARTED` | User + Executor | T17 | Leadership/operator approval and no high-severity open defect |
 | 23 | T18 | Run and evaluate four-week pilot | `NOT_STARTED` | Executor + operators | C05 | Pilot evidence, defects, usability findings, and revised decisions |
 | 24 | T19 | Roll out remaining ministries and schedule Quarter 1 review | `NOT_STARTED` | Executor + leadership | T18 | Full rollout, ownership handoff, and review calendar |
@@ -680,6 +680,8 @@ Record only decisions that alter execution, scope, configuration, or feature fla
 | 2026-08-19 | T15 | `src/operations.ts`, `src/operations.test.ts`; `npm run lint`; `npm run typecheck`; `npm test -- --run` (13 files, 31 passed); pushed `backupPilotResources` to Apps Script | Audit, stale detection, deterministic rebuild, and backup manifest code pass locally | Backup smoke run remains to be executed in Apps Script |
 | 2026-08-19 | T15 | Apps Script `backupPilotResources` completed; verified two backup workbooks in [Backups](https://drive.google.com/drive/folders/1yfdi8YLi3eJMet26D-ZfhEVRBkJIQrO1) | Backup smoke test passed; T16 eligible | Restore drill remains part of later readiness work |
 | 2026-08-19 | T16 | Added `.github/workflows/ci.yml`, `bootstrap:verify`, `restore:test`, `rollback`, and expanded `smoke`; full local gate passed: 31 tests, privacy/PDF tests, lint, type-check, build | CI/release configuration is ready locally | U10 required to authorize GitHub Actions/repository production deployment and rollback secrets |
+| 2026-08-19 | T16 | Commit `d18301f` pushed to `main` at `github.com/alexander124-jpg/church-app`; non-mutating push check succeeded | GitHub connection and repository write access verified; CI workflow should now run | GitHub Actions result still needs confirmation before C04 |
+| 2026-08-19 | C04 | User confirmed GitHub Actions workflow is green; local smoke, privacy, PDF, backup, role, and recovery-contract checks passed | Production-readiness checkpoint passed; T17 reached | Real-data pilot policies remain gated behind U01/U02/U07/U08 |
 
 ---
 
