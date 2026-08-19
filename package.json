@@ -1,5 +1,5 @@
 {
-  "name": "volunteer-sign-up-board",
+  "name": "eagles-ark-kpi-tracker",
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -7,19 +7,38 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "vitest run"
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "test:privacy": "vitest run --config vitest.privacy.config.js",
+    "test:pdf": "vitest run --config vitest.pdf.config.js",
+    "bootstrap:verify": "node scripts/bootstrap-verify.mjs",
+    "restore:test": "node scripts/restore-test.mjs",
+    "deploy": "npm run build && echo 'Deploy via clasp after Workspace authorization'",
+    "smoke": "npm run typecheck && npm run lint && npm test -- --run && npm run build",
+    "rollback": "node scripts/rollback.mjs"
   },
   "dependencies": {
     "@vitejs/plugin-react": "latest",
     "vite": "latest",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "recharts": "latest",
+    "zod": "latest"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "latest",
     "@testing-library/react": "latest",
+    "@eslint/js": "latest",
+    "@typescript-eslint/eslint-plugin": "latest",
+    "@typescript-eslint/parser": "latest",
+    "eslint": "latest",
+    "eslint-plugin-react-hooks": "latest",
     "jsdom": "latest",
+    "playwright": "latest",
+    "typescript": "latest",
+    "typescript-eslint": "latest",
     "vitest": "latest"
   }
 }
-
